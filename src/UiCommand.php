@@ -13,7 +13,7 @@ class UiCommand extends Command
      * @var string
      */
     protected $signature = 'ui
-                    { type : The preset type (bootstrap, vue, react) }
+                    { type : The preset type (bootstrap, vue, react, tailwindcss) }
                     { --auth : Install authentication UI scaffolding }
                     { --option=* : Pass an option to the preset command }';
 
@@ -37,7 +37,7 @@ class UiCommand extends Command
             return call_user_func(static::$macros[$this->argument('type')], $this);
         }
 
-        if (! in_array($this->argument('type'), ['bootstrap', 'vue', 'react'])) {
+        if (! in_array($this->argument('type'), ['bootstrap', 'vue', 'react', 'tailwindcss'])) {
             throw new InvalidArgumentException('Invalid preset.');
         }
 
@@ -72,6 +72,25 @@ class UiCommand extends Command
         Presets\Vue::install();
 
         $this->info('Vue scaffolding installed successfully.');
+        $this->comment('Please run "npm install && npm run dev" to compile your fresh scaffolding.');
+    }
+
+    /**
+     * Install the "tailwindcss" preset.
+     *
+     * @return void
+     */
+    protected function tailwindcss()
+    {
+        // TODO: the bootstrap::isntall should work a little differently when it is tailwindcss
+        // bootstrap should be removed
+        // TODO: or remove it completely and include all needed functionality in the "Tailwindcss.php"
+        // TODO: Check if a bootstrap installed, warn or remove
+        Presets\Bootstrap::install();
+
+        Presets\tailwindcss::install();
+
+        $this->info('tailwindcss scaffolding installed successfully.');
         $this->comment('Please run "npm install && npm run dev" to compile your fresh scaffolding.');
     }
 
