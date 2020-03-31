@@ -82,12 +82,6 @@ class UiCommand extends Command
      */
     protected function tailwindcss()
     {
-        // TODO: the bootstrap::isntall should work a little differently when it is tailwindcss
-        // bootstrap should be removed
-        // TODO: or remove it completely and include all needed functionality in the "Tailwindcss.php"
-        // TODO: Check if a bootstrap installed, warn or remove
-        Presets\Bootstrap::install();
-
         Presets\tailwindcss::install();
 
         $this->info('tailwindcss scaffolding installed successfully.');
