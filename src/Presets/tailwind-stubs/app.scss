@@ -9,4 +9,10 @@
 // put your styles here //
 // ******************** //
 
+.links {
+    a {
+        @apply uppercase no-underline tracking-widest font-semibold text-sm px-6 text-gray-700;
+    }
+}
+
 @import "tailwindcss/utilities";
