@@ -81,6 +81,10 @@ class Tailwindcss extends Preset
      */
     protected static function updateSass()
     {
+        (new Filesystem)->delete(
+            resource_path('sass/_variables.scss')
+        );
+
         copy(__DIR__.'/tailwind-stubs/app.scss', resource_path('sass/app.scss'));
     }
 
