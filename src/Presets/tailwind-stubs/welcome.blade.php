@@ -6,50 +6,13 @@
 
         <title>Laravel</title>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title-z {
-                font-size: 84px;
-            }
-
-        </style>
     </head>
-    <body>
-        <div class="flex-center position-ref full-height">
+
+    <body class="font-hairline">
+        <div class="items-center flex justify-center relative h-screen">
             @if (Route::has('login'))
-                <div class="links links absolute top-0 right-0 mt-5 mr-3">
+                <div class="links absolute top-0 right-0 mt-5 mr-3">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
@@ -62,22 +25,8 @@
                 </div>
             @endif
 
-            @if ('login')
-                <div class="links absolute top-0 right-0 mt-5 mr-3">
-                    @if('home')
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if ('register')
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endif
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title-z mb-6">
+            <div class="text-center">
+                <div class="text-6xl mb-6">
                     Laravel
                 </div>
 

@@ -21,6 +21,7 @@ class Tailwindcss extends Preset
         static::removeNodeModules();
         static::updateTailwindcssConfiguration();
         static::updateSass();
+        static::updateBlade();
     }
 
     /**
@@ -81,5 +82,16 @@ class Tailwindcss extends Preset
     protected static function updateSass()
     {
         copy(__DIR__.'/tailwind-stubs/app.scss', resource_path('sass/app.scss'));
+    }
+
+    
+    /**
+     * Update the blade files (welcome.blade.php)
+     *
+     * @return void
+     */
+    protected static function updateBlade()
+    {
+        copy(__DIR__.'/tailwind-stubs/welcome.blade.php', resource_path('views/welcome.blade.php'));
     }
 }
