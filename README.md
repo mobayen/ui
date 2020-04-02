@@ -11,6 +11,7 @@ While Laravel does not dictate which JavaScript or CSS pre-processors you use, i
 ## About Tilwindcss preset
 
 If you wish to use Tailwind CSS in your project and not Bootstrap and jQuery, it is for you!
+Also, You will have Tailwind classes styling the initial blade files, but neither Bootstrap nor plain css!
 
 ## Usage
 
