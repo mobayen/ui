@@ -69,13 +69,13 @@ class UiCommand extends Command
      */
     protected function vue()
     {
+        Presets\Vue::install();
+
         if ($this->option('front') === 'tailwindcss') {
             Presets\Tailwindcss::install();
         } else {
             Presets\Bootstrap::install();
         }
-        
-        Presets\Vue::install();
 
         $this->info('Vue scaffolding installed successfully.');
         $this->comment('Please run "npm install && npm run dev" to compile your fresh scaffolding.');
