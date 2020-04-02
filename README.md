@@ -6,9 +6,34 @@
 
 ## Introduction
 
-While Laravel does not dictate which JavaScript or CSS pre-processors you use, it does provide a basic starting point using [Bootstrap](https://getbootstrap.com/), [React](https://reactjs.org/), and / or [Vue](https://vuejs.org/) that will be helpful for many applications. By default, Laravel uses [NPM](https://www.npmjs.org/) to install both of these frontend packages.
+While Laravel does not dictate which JavaScript or CSS pre-processors you use, it does provide a basic starting point using [Bootstrap](https://getbootstrap.com/) or [Tailwindcss](https://tailwindcss.com/), [React](https://reactjs.org/), and / or [Vue](https://vuejs.org/) that will be helpful for many applications. By default, Laravel uses [NPM](https://www.npmjs.org/) to install both of these frontend packages.
 
-**We are not accepting new presets.**
+## About Tilwindcss preset
+
+If you wish to use Tailwind CSS in your project and not Bootstrap and jQuery, it is for you!
+
+## Usage
+
+This package won't install Bootstrap and jQuery, or remove them if they are already installed if you explitly specify Tailwindcss!
+
+You just need to add `--front=tailwindcss` to have tailwind as front-end framework!
+
+```
+    // In addition to the original artisan commands, you can use tailwindcss scaffolding...
+    php artisan ui tailwindcss
+    php artisan ui vue --front=tailwindcss
+```
+
+```
+    // Generate login / registration scaffolding...
+    php artisan ui tailwindcss --auth
+    php artisan ui vue --auth --front=tailwindcss
+```
+
+### disclaimer
+
+It is for my personal use but I tried to not break the other functionalities of the package.
+So, it suppose to work as normal (install bootstrap and jQuery) if you dont mention `--front=tailwindcss`
 
 ## Official Documentation
 
@@ -29,3 +54,6 @@ Please review [our security policy](https://github.com/laravel/ui/security/polic
 ## License
 
 Laravel UI is open-sourced software licensed under the [MIT license](LICENSE.md).
+
+## Known issues
+- React styles may be messy!

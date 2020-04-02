@@ -15,6 +15,7 @@ class UiCommand extends Command
     protected $signature = 'ui
                     { type : The preset type (bootstrap, vue, react, tailwindcss) }
                     { --auth : Install authentication UI scaffolding }
+                    { --front=bootstrap : front end framework }
                     { --option=* : Pass an option to the preset command }';
 
     /**
@@ -44,7 +45,7 @@ class UiCommand extends Command
         $this->{$this->argument('type')}();
 
         if ($this->option('auth')) {
-            $this->call('ui:auth');
+            $this->call('ui:auth', ['type' => $this->option('front')]);
         }
     }
 
@@ -68,7 +69,12 @@ class UiCommand extends Command
      */
     protected function vue()
     {
-        Presets\Bootstrap::install();
+        if ($this->option('front') === 'tailwindcss') {
+            Presets\Tailwindcss::install();
+        } else {
+            Presets\Bootstrap::install();
+        }
+        
         Presets\Vue::install();
 
         $this->info('Vue scaffolding installed successfully.');
