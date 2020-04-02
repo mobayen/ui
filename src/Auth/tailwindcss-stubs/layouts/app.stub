@@ -19,37 +19,47 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
+
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+        <nav class="relative flex flex-wrap items-center justify-between px-4 py-2 bg-white shadow 
+            md:flex-row md:flex-no-wrap md:justify-start"
+        >
+            <div class="container
+                bg-white
+                flex flex-wrap items-center justify-between
+                max-w-screen-xl mx-auto mx-2
+                md:flex-no-wrap
+            ">
+                <a class="text-gray-900 inline-block py-1 mr-4 text-lg whitespace-no-wrap" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse
+                    md:flex flex-grow items-center
+                " id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+                    <ul class="mr-auto flex flex-column pl-0 mb-0 md:flex-row">
 
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="ml-auto flex flex-column pl-0 mb-0 md:flex-row">
                         <!-- Authentication Links -->
                         @guest
-                            <li class="nav-item">
+                            <li class="block py-2 px-4 md:px-2">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
-                                <li class="nav-item">
+                                <li class="block py-2 px-4 md:px-2">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
+                            <li class="block py-2 px-4 md:px-2">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
@@ -72,7 +82,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-6">
             @yield('content')
         </main>
     </div>
